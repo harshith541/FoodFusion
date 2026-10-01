@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FoodFusion - Restaurant</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+
+            <div>
+                <h1>Food<span>Fusion</span></h1>
+                <p>GOOD FOOD&nbsp;&nbsp; GOOD MOOD</p>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="nav-right">
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search food...">
+            </div>
+
+            <div class="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartCount">0</span>
+            </div>
+
+            <button id="themeButton" class="theme-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h2>
+                Delicious Food<br>
+                <span>For a Better Mood</span>
+            </h2>
+
+            <p>
+                Explore a variety of tasty dishes made with love
+                and the freshest ingredients.
+            </p>
+
+            <button class="order-btn">
+                Order Now
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU SECTION ================= -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="menu-header">
+
+            <div>
+                <h2>Our <span>Menu</span></h2>
+                <p>Choose from a wide range of delicious food items</p>
+            </div>
+
+            <div class="menu-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="menuSearch"
+                    placeholder="Search food items..."
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CATEGORY BUTTONS ================= -->
+
+        <div class="categories">
+
+            <button class="category active" data-category="all">
+                All
+            </button>
+
+            <button class="category" data-category="starters">
+                Starters
+            </button>
+
+            <button class="category" data-category="main">
+                Main Course
+            </button>
+
+            <button class="category" data-category="desserts">
+                Desserts
+            </button>
+
+            <button class="category" data-category="drinks">
+                Drinks
+            </button>
+
+        </div>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <div class="content-area">
+
+
+            <!-- FOOD ITEMS -->
+
+            <div class="food-container" id="foodContainer">
+
+                <!-- Food cards will be created by JavaScript -->
+
+            </div>
+
+
+            <!-- ================= CART ================= -->
+
+            <aside class="cart">
+
+                <div class="cart-header">
+
+                    <h2>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Your Cart (<span id="cartItems">0</span>)
+                    </h2>
+
+                    <button id="clearCart">
+                        <i class="fa-regular fa-trash-can"></i>
+                        Clear All
+                    </button>
+
+                </div>
+
+
+                <div id="cartContainer" class="cart-container">
+
+                    <div class="empty-cart">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <h3>Your cart is empty</h3>
+
+                        <p>Add delicious food to your cart!</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CART TOTAL -->
+
+                <div class="cart-total">
+
+                    <div>
+                        <span>Subtotal</span>
+                        <strong id="subtotal">₹0</strong>
+                    </div>
+
+                    <div>
+                        <span>Delivery Charge</span>
+                        <strong>₹40</strong>
+                    </div>
+
+                    <hr>
+
+                    <div class="total">
+
+                        <span>Total Amount</span>
+
+                        <strong id="total">₹0</strong>
+
+                    </div>
+
+                </div>
+
+
+                <button class="checkout-btn" id="checkout">
+
+                    Proceed to Order
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </aside>
+
+        </div>
+
+        </section>
+
+
+    <!-- ================= FOOD DETAILS MODAL ================= -->
+
+    <div class="food-modal" id="foodModal">
+
+        <div class="modal-content">
+
+            <!-- Close button -->
+            <button class="modal-close" id="modalClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="Food">
+            </div>
+
+            <div class="modal-details">
+
+                <span class="modal-category" id="modalCategory">
+                    Main Course
+                </span>
+
+                <h2 id="modalName">
+                    Food Name
+                </h2>
+
+                <div class="modal-rating">
+
+                    <span>
+                        <i class="fa-solid fa-star"></i>
+                        <span id="modalRating">4.5</span>
+                    </span>
+
+                    <span class="rating-text">
+                        Excellent
+                    </span>
+
+                </div>
+
+                <p id="modalDescription">
+                    Food description goes here.
+                </p>
+
+                <div class="modal-price" id="modalPrice">
+                    ₹249
+                </div>
+
+
+                <!-- Quantity -->
+
+                <div class="modal-quantity">
+
+                    <span>Quantity</span>
+
+                    <div class="quantity-control">
+
+                        <button id="modalMinus">
+                            −
+                        </button>
+
+                        <span id="modalQuantity">
+                            1
+                        </span>
+
+                        <button id="modalPlus">
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Add Cart -->
+
+                <button class="modal-add-btn" id="modalAddCart">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
